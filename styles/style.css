@@ -83,11 +83,23 @@ main {
     color: lightgoldenrodyellow;
     margin-bottom: 90px;
     margin-top: 30px;
-    text-align: center;
-    text-shadow: 0 0 4px black; }
+    text-align: center; }
+
+article p {
+  margin: 12px auto; }
+
+article strong[data-person] {
+  border-bottom: dashed 1px;
+  display: inline-block;
+  font-family: Verdana;
+  font-size: 0.9em; }
 
 #asides {
   justify-content: space-between; }
+  @media (max-width: 747px) {
+    #asides {
+      margin: auto;
+      width: 65%; } }
   @media (min-width: 748px) {
     #asides {
       display: flex;
@@ -105,6 +117,9 @@ main {
     padding-bottom: 18%;
     position: relative;
     transition: all ease 0.4s; }
+    @media (max-width: 747px) {
+      #asides aside {
+        margin-bottom: 7vw; } }
     #asides aside:nth-child(1) {
       animation-name: grow;
       animation-duration: 1s;
@@ -160,15 +175,15 @@ main {
     #asides aside h4 {
       background-color: rgba(0, 0, 0, 0.5);
       bottom: 0;
-      color: white;
+      color: rgba(255, 255, 255, 0.7);
       cursor: default;
-      font-size: 1.13vw;
+      font-size: 4vw;
       height: 39%;
       margin: auto;
-      opacity: 0.5;
       padding: 17% 0;
       position: absolute;
       text-align: center;
+      text-shadow: 0 0 4px black;
       transition: all ease 0.5s;
       width: 100%; }
       #asides aside h4:hover {
@@ -179,10 +194,16 @@ main {
         padding-top: 40px; }
         #asides aside h4:hover + p {
           bottom: 0;
-          font-size: 0.7vw;
+          font-size: 2vw;
           height: auto;
           opacity: 1;
           transition: all ease 0.5s; }
+          @media (min-width: 748px) {
+            #asides aside h4:hover + p {
+              font-size: 10px; } }
+      @media (min-width: 748px) {
+        #asides aside h4 {
+          font-size: 10px; } }
     #asides aside p {
       color: white;
       font-size: 10px;
@@ -198,6 +219,8 @@ main {
       animation-delay: initial !important; }
       #asides aside.fade.fade-out {
         animation-name: fadeOut; }
+      #asides aside.fade:not(.fade-out) {
+        z-index: 1; }
 
 footer {
   line-height: 80px; }
@@ -212,12 +235,13 @@ footer {
   width: 20%;
   min-width: 200px; }
   #chapters .menu {
-    bottom: 100px;
+    bottom: 0;
     left: 0;
     min-width: 200px;
+    overflow: auto;
     position: fixed;
     top: 0;
-    width: calc(20% - 20px); }
+    width: 20%; }
 
 #chapter-contents {
   background-color: rgba(255, 255, 255, 0.75);
@@ -248,10 +272,14 @@ footer {
     text-decoration: none; }
     #chapter-contents h1 a:hover {
       text-decoration: underline; }
+  #chapter-contents header section {
+    margin: 12px auto; }
 
 #chapters-list-menu {
   margin-top: 8px;
   padding: 20px; }
+  #chapters-list-menu.no-overflow {
+    overflow: hidden; }
   #chapters-list-menu h4.chapters-overview {
     display: none; }
   #chapters-list-menu .chapters-go-home {
@@ -308,11 +336,12 @@ footer {
     margin-right: 10px;
     white-space: nowrap; }
 
-#about-characters {
-  display: none; }
-
-#stories-preview {
-  display: none; }
+#about-characters::before {
+  content: "About charecters";
+  display: block;
+  font: 20px/1.5 Verdana;
+  margin-bottom: 0.5em;
+  margin-top: 0.75em; }
 
 #text .chapter-title {
   font-weight: bold; }
@@ -337,3 +366,6 @@ body.nihilistic_parody:after {
 
 body.cabalistic_bewitching_hero:after {
   background-image: url(../images/backgrounds/witch-2.jpg); }
+
+body.joshua_world:after {
+  background-image: url(../images/backgrounds/joshua_world.jpg); }
